@@ -1,0 +1,30 @@
+body{
+    background-image:url(02.jpg);
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    align-items: center;
+}
+.container{
+    display: grid;
+    justify-content: center;
+    padding: 20px;
+    color:black;
+}
+.h6{
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.form-group{ 
+ padding: 15px;
+}
+.btn{
+    text-align: center;
+    margin: 10px;
+    width: 200px;
+}
+.form-control{
+    width: 500px;
+}

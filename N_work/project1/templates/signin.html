@@ -1,0 +1,41 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'login.css'%}" />
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+
+
+{% block content %}
+    {% if messages%}
+        {% for message in messages %}
+            <h4 style="text-align:center; color:black; font-weight 600px; font-family:">{{message}}</h4>
+        {% endfor %}
+    {% endif %} 
+
+
+<div class="content">
+  <div class="text">Login</div>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="field">
+      <input type="text" name="username" id="username" required />
+      <span class="fas fa-user"></span>
+      <label for="username" >UserName</label>
+      
+    </div>
+
+    <div class="field">
+      <input type="password" name="password" id="password" required />
+      <span class="fas fa-lock"></span>
+      <label for="password"> Password</label>
+    </div>
+
+    <div class="forgot-pass">
+      <a href="#">Forget Password</a>
+    </div>
+    <a href="{% url 'todo' %}"><button class="btn">SIGN IN</button></a>
+    <div class="signup">Not Registered?
+        <a href="{% url "signup" %}">SignUp Now</a>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}

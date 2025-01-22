@@ -1,0 +1,30 @@
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %} 
+{% load static %}
+<link rel="stylesheet" href="{% static 'home.css'%}" />
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">Lets Do</a>
+    <form class="d-flex">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+{% block content %}
+
+<div class="canvas">
+    <h1>Lets Do.....</h1>
+    <p>Complete this today onwards</p>
+    <div class="button-container">
+      <a href="{% url 'signup' %}"><button class="btn">SIGN UP</button></a>
+      <a href="{% url 'signin' %}"><button class="btn">SIGN IN</button></a>
+    </div>
+</div>
+{% endblock content %}

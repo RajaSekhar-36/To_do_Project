@@ -1,0 +1,50 @@
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %} 
+{% load static %}
+<link rel="stylesheet" href="{% static 'todo.css'%}" />
+<a href="{% url "signout" %}"><button class="btn btn-dark" type="submit" >Logout</button>
+</a>
+{% block content %}
+
+    {% if messages%}
+        {% for message in messages %}
+            <h4 style="text-align:center; color:black; font-weight 600px; font-family:">{{message}}</h4>
+        {% endfor %}
+    {% endif %}
+<div class="container">
+<form class="form" method="POST">
+    {% csrf_token %}
+    <h3>To Do App</h3>
+    <input type="text" name="task" id="task" placeholder="Enter your task here">
+    <input type="date" name="date" id="date" >
+    <button class="btn btn-primary"type="submit">Save</button>
+</form>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <th>No</th>
+        <th>ToDo List</th>
+        <th>Status</th>
+        <th>Due</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in data %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{record.task}}</td>
+        <td>{{record.status}}</td>
+        <td>{{record.date}}</td>
+        <td class="btn btn-primary"><a href="{% url "delete" record.id %}">Delete</a></td>
+        <td class="btn btn-Success"><a href="{% url "modify" record.id %}">Modify</a></td>
+        {% comment %} <td class="btn btn-Success"><a href="{% url "todo_completed" record.id %}">Complete</a></td> {% endcomment %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+<br><br>
+
+
+
+
+{% endblock content %}

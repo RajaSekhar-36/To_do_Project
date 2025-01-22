@@ -1,0 +1,13 @@
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %} 
+
+
+
+{% block content %}
+<div class="container">
+<form class="form" method="POST">
+    {% csrf_token %}
+    <h3>To Do App</h3>
+    <input type="text" name="task" id="task" placeholder="Enter your task here">
+    <input type="date" name="date" id="date" >
+    <button class="btn btn-primary"type="submit">UPDATE</button>
+</form>
